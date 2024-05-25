@@ -1,2 +1,3 @@
 com\udea\dao\ClienteDAO.class
+com\udea\model\ClienteInmo.class
 com\udea\model\Cliente.class

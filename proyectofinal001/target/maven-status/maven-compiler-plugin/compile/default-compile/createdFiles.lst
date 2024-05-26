@@ -1,3 +1,7 @@
-com\udea\dao\ClienteDAO.class
+com\udea\dao\ClienteInmoDao.class
 com\udea\model\ClienteInmo.class
 com\udea\model\Cliente.class
+com\udea\TestConnection.class
+com\udea\dao\ClienteDAO.class
+com\udea\servlets\RegistroServlet.class
+com\udea\dao\conexionDAO.class

@@ -6,25 +6,22 @@ public class Cliente implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private int consecutivo;
-    private int identificacion;
-    private String nombre1;
-    private String nombre2;
-    private String apellido1;
-    private String apellido2;
+    private int id;
+    private String nombres;
+    private String apellidos;
     private String email;
+    private String pais;
 
     public Cliente() {
 
     }
 
-    public Cliente(int identificacion, String nombre1, String nombre2, String apellido1,
-            String apellido2, String email) {
-        this.identificacion = identificacion;
-        this.nombre1 = nombre1;
-        this.nombre2 = nombre2;
-        this.apellido1 = apellido1;
-        this.apellido2 = apellido2;
+    public Cliente(int id, String nombres, String apellidos, String email, String pais) {
+        this.id = id;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
         this.email = email;
+        this.pais = pais;
     }
 
     public int getConsecutivo() {
@@ -35,44 +32,28 @@ public class Cliente implements Serializable {
         this.consecutivo = consecutivo;
     }
 
-    public int getIdentificacion() {
-        return identificacion;
+    public int getId() {
+        return id;
     }
 
-    public void setIdentificacion(int identificacion) {
-        this.identificacion = identificacion;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getNombre1() {
-        return nombre1;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setNombre1(String nombre1) {
-        this.nombre1 = nombre1;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
-    public String getNombre2() {
-        return nombre2;
+    public String getApellidos() {
+        return apellidos;
     }
 
-    public void setNombre2(String nombre2) {
-        this.nombre2 = nombre2;
-    }
-
-    public String getApellido1() {
-        return apellido1;
-    }
-
-    public void setApellido1(String apellido1) {
-        this.apellido1 = apellido1;
-    }
-
-    public String getApellido2() {
-        return apellido2;
-    }
-
-    public void setApellido2(String apellido2) {
-        this.apellido2 = apellido2;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public String getEmail() {
@@ -81,6 +62,14 @@ public class Cliente implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
     }
 
 }

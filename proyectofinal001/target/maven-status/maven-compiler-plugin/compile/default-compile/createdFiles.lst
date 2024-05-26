@@ -1,6 +1,8 @@
 com\udea\dao\ClienteInmoDao.class
 com\udea\model\ClienteInmo.class
 com\udea\model\Cliente.class
+com\udea\test.class
+com\udea\TestInsertarBD.class
 com\udea\TestConnection.class
 com\udea\dao\ClienteDAO.class
 com\udea\servlets\RegistroServlet.class

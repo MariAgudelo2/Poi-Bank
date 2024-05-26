@@ -18,9 +18,6 @@
       <label>Email: </label>
       <input type="email" name="email" />
       <br />
-      <label>Número de identificación: </label>
-      <input type="number" name="identificacion" />
-      <br />
       <label>País: </label>
       <select name="pais">
         <option>Argentina</option>
@@ -28,6 +25,13 @@
         <option>Ecuador</option>
         <option>México</option>
       </select>
+      <br />
+      <label>Número de identificación: </label>
+      <input type="number" name="id" />
+      <br />
+      <label>Contraseña: </label>
+      <input type="password" name="contrasena" />
+      <br />
       <button type="submit">Enviar</button>
     </form>
   </body>

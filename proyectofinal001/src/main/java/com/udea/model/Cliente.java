@@ -11,17 +11,27 @@ public class Cliente implements Serializable {
     private String apellidos;
     private String email;
     private String pais;
+    private String contrasena;
 
     public Cliente() {
 
     }
 
-    public Cliente(int id, String nombres, String apellidos, String email, String pais) {
+    public Cliente(int id, String nombres, String apellidos, String email, String pais, String contrasena) {
         this.id = id;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.email = email;
         this.pais = pais;
+        this.contrasena = contrasena;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public int getConsecutivo() {

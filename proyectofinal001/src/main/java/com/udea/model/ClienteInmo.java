@@ -10,7 +10,7 @@ public class ClienteInmo {
     private String pais;
     private String ciudad;
     private String mtsCua;
-    private double precio;
+    private Long precio;
     private String tipo;
     private Timestamp timeStamp;
 
@@ -47,10 +47,10 @@ public class ClienteInmo {
     public void setMtsCua(String mtsCua) {
         this.mtsCua = mtsCua;
     }
-    public double getPrecio() {
+    public Long getPrecio() {
         return precio;
     }
-    public void setPrecio(double precio) {
+    public void setPrecio(Long precio) {
         this.precio = precio;
     }
     public String getTipo() {
@@ -64,6 +64,9 @@ public class ClienteInmo {
     }
     public void setTimeStamp(Timestamp timeStamp) {
         this.timeStamp = timeStamp;
+    }
+    public void setConsecutivo(int consecutivo) {
+        this.consecutivo = consecutivo;
     }
 
     

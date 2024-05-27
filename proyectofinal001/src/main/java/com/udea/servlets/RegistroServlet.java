@@ -1,6 +1,6 @@
 package com.udea.servlets;
 
-import com.udea.dao.ClienteDAO;
+import com.udea.dao.ClienteBancoDAO;
 import com.udea.model.Cliente;
 
 import jakarta.servlet.ServletException;
@@ -13,10 +13,10 @@ import java.io.IOException;
 
 @WebServlet("/registro")
 public class RegistroServlet extends HttpServlet {
-    private ClienteDAO clienteDao;
+    private ClienteBancoDAO clienteDao;
 
     public RegistroServlet() {
-        this.clienteDao = new ClienteDAO();
+        this.clienteDao = new ClienteBancoDAO();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

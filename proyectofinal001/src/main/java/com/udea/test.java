@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.udea.model.Cliente;
 import com.udea.model.ClienteInmo;
+import com.udea.model.MatriculaInmo;
 import com.udea.dao.ClienteInmoDao;
 public class test {
     
@@ -17,7 +18,15 @@ public class test {
 
     
     public static void main(String[] args) {
+        
+        mostrarDaticos();
 
+        ClienteInmo cliente = clienteInmoDao.SeleccionarProp(1, "Mi casita");
+        MatriculaInmo matriculaInmo = new MatriculaInmo();
+        matriculaInmo.validOfrecer(cliente);
+    }
+
+    public static void modificarDaticos(){
         clienteInmo = clienteInmoDao.SeleccionarProp(2, "Mi casita");
         System.out.println("soy " + clienteInmo.getIdCliente());
         //Datos quemados para prueba unicamente
@@ -26,7 +35,6 @@ public class test {
         //Datos quemados para prueba unicamente
         clienteInmoDao.ModificarDueño(clienteInmo, clienteInmo2);
     }
-
     public static void daticosInsert(){
         
         //Datos quemados para prueba unicamente
@@ -44,12 +52,11 @@ public class test {
     }
    
     public static void mostrarDaticos(){
-        List<ClienteInmo> casasClienteInmoDaos = clienteInmoDao.MostrarCasas(); 
+        List<ClienteInmo> casasClienteInmoDaos = clienteInmoDao.MostrarSubastas(); 
        
        for (ClienteInmo clienteInmo : casasClienteInmoDaos) {
         System.out.println("------------------");
-        System.out.println("ID Cliente: " + clienteInmo.getIdCliente());
-        System.out.println("Descripción: " + clienteInmo.getDescrip());
+        System.out.println("Descripción: " + clienteInmo.getDescrip());    
         System.out.println("Tipo: " + clienteInmo.getTipo());
         System.out.println("País: " + clienteInmo.getPais());
         System.out.println("Ciudad: " + clienteInmo.getCiudad());

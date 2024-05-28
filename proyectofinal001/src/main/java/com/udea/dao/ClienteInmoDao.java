@@ -18,8 +18,11 @@ public class ClienteInmoDao {
 
     private static final String INSERTAR_CASA = " INSERT INTO inmo.inmocasas(idCliente, descripcion, tipo, pais, ciudad, metrosCuadrados, precio, fechalim) VALUES(?,?,?,?,?,?,?,?)";
     private static final String SELECCIONAR_TODAS ="SELECT * FROM inmo.inmocasas ";
+    private static final String SELECCIONAR_TODAS_SUBASTAS ="SELECT * FROM inmo.inmocasas where tipo like '%basta' ";
+    private static final String SELECCIONAR_PROPDUEÑO ="SELECT * FROM inmo.inmocasas WHERE consecutivoInmo = ? ";
     private static final String SELECCIONAR_PROP ="SELECT * FROM inmo.inmocasas WHERE consecutivoInmo = ? AND descripcion = ?";
     private static final String MODIFICAR_DUEÑO = " UPDATE inmo.inmocasas SET consecutivoInmo= ?, idCliente= ?, tipo='Propiedad', fechalim= null WHERE consecutivoInmo = ? AND descripcion = ?" ;
+    private static final String MODIFICAR_PRECIO = " UPDATE inmo.inmocasas SET precio= ? WHERE consecutivoInmo = ? AND descripcion = ?" ;
     private static final String ELIMINAR_PROPIEDAD = "DELETE FROM inmo.inmocasas WHERE consecutivoInmo = ? AND descripcion = ?";
 
                 protected Connection getConnection() {
@@ -90,6 +93,20 @@ public class ClienteInmoDao {
         System.out.println("No se cucho pille: " + e.getMessage());
         }
     }
+    public void ModificarPrecio(Long valor, ClienteInmo clienteInmo)
+    {
+        try(
+            Connection conexion = getConnection();
+            PreparedStatement preparedStatement = conexion.prepareStatement(MODIFICAR_PRECIO)){
+              preparedStatement.setLong(1, valor);
+              preparedStatement.setInt(2, clienteInmo.getConsecutivo());
+              preparedStatement.setString(3, clienteInmo.getDescrip());
+              preparedStatement.executeUpdate();
+
+            } catch (Exception e) {
+              System.out.println("Error mira: " +  e.getMessage());
+            }
+    }
 
     public ClienteInmo SeleccionarProp(int consecutivo, String desc)
     {   ClienteInmo clienteInmo = new ClienteInmo();
@@ -143,6 +160,32 @@ public class ClienteInmoDao {
           System.out.println("Error al seleccionar todas las casas: " + e.getMessage());
         }
         return clientesInmo;
+      }
+
+      public List<ClienteInmo> MostrarSubastas() {
+
+        List<ClienteInmo> subastasDispo = new ArrayList<>();
+
+        try (Connection conexion = getConnection();
+            PreparedStatement preparedStatement = conexion.prepareStatement(SELECCIONAR_TODAS_SUBASTAS)) {
+          ResultSet resultSet = preparedStatement.executeQuery();
+          while (resultSet.next()) {
+            ClienteInmo clienteInmo = new ClienteInmo();
+            //clienteInmo.setNombre(resultSet.getString("consecutivoInmo"));
+            clienteInmo.setIdCliente(resultSet.getInt("idCliente"));
+            clienteInmo.setDescrip(resultSet.getString("descripcion"));
+            clienteInmo.setTipo(resultSet.getString("tipo"));
+            clienteInmo.setPais(resultSet.getString("pais"));
+            clienteInmo.setCiudad(resultSet.getString("ciudad"));
+            clienteInmo.setMtsCua(resultSet.getString("metrosCuadrados"));
+            clienteInmo.setPrecio(resultSet.getLong("precio"));
+            clienteInmo.setTimeStamp(resultSet.getTimestamp("fechalim"));
+            subastasDispo.add(clienteInmo);
+          }
+        } catch (SQLException e) {
+          System.out.println("Error al seleccionar todas las propiedades en subasta: " + e.getMessage());
+        }
+        return subastasDispo;
       }
 
       public  void eliminarPropiedad(int consecutivoInmo, String descString)

@@ -13,7 +13,10 @@ public class ClienteInmo {
     private Long precio;
     private String tipo;
     private Timestamp timeStamp;
+    private int codigoProp;
 
+    
+    
     public int getConsecutivo() {
         return consecutivo;
     }
@@ -67,6 +70,12 @@ public class ClienteInmo {
     }
     public void setConsecutivo(int consecutivo) {
         this.consecutivo = consecutivo;
+    }
+    public int getCodigoProp() {
+        return codigoProp;
+    }
+    public void setCodigoProp(int codigoProp) {
+        this.codigoProp = codigoProp;
     }
 
     

@@ -4,12 +4,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class conexionDAO {
+public class ConexionDAO {
     private String URL_DB = "jdbc:mariadb://localhost:3306/mysql";
     private String USER_DB = "root";
     private String PASSWORD_DB = "root";
 
-    public conexionDAO() {
+    public ConexionDAO() {
 
     }
 

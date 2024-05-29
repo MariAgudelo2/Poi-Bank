@@ -7,12 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.udea.model.Cliente;
+import com.udea.model.Cuenta;
 
 public class ClienteBancoDAO {
     conexionDAO conexionDao = new conexionDAO();
 
     private static final String insertarCliente = "INSERT INTO banco.clientes (id, nombres, apellidos, email, pais, contrasena) VALUES (?, ?, ?, ?, ?, ?)";
     private static final String seleccionarCliente = "SELECT * FROM banco.clientes WHERE pais = ? AND id = ? AND contrasena = ?";
+    private static final String crearCuenta = "INSERT INTO banco.cuentas (nroCuenta, cliente, saldo, tipoCuenta) VALUES (?, ?, ?, ?)";
+    private static final String seleccionarCuenta = "SELECT * FROM banco.cuentas WHERE cliente = ? AND tipoCuenta = ?";
     private static final String ELIMINAR_cliente = "DELETE FROM clientes WHERE identificacion = ?";
     private static final String ACTUALIZAR_cliente = "UPDATE clientes SET nombre1 = ?, nombre2 = ?, apellido1 = ?, apellido2 = ?, email = ?, contrasena = ? WHERE identificacion = ?";
 
@@ -46,11 +49,45 @@ public class ClienteBancoDAO {
                 cliente.setNombres(resultSet.getString("nombres"));
                 cliente.setApellidos(resultSet.getString("apellidos"));
                 cliente.setEmail(resultSet.getString("email"));
+                cliente.setConsecutivo(resultSet.getInt("consecutivo"));
             }
         } catch (SQLException e) {
             System.out.println("Error al seleccionar un cliente: " + e.getMessage());
         }
         return cliente;
+    }
+
+    public void crearCuenta(Cuenta cuenta) {
+        try (
+                Connection conexion = conexionDao.getConnection();
+                PreparedStatement preparedStatement = conexion.prepareStatement(crearCuenta)) {
+            preparedStatement.setInt(1, cuenta.getNroCuenta());
+            preparedStatement.setInt(2, (cuenta.getCliente()).getConsecutivo());
+            preparedStatement.setDouble(3, 0);
+            preparedStatement.setString(4, cuenta.getTipoCuenta());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Error al crear una cuenta: " + e.getMessage());
+        }
+    }
+
+    public Cuenta seleccionarCuenta(Cliente cliente, String tipoCuenta) {
+        Cuenta cuenta = null;
+        try (
+                Connection conexion = conexionDao.getConnection();
+                PreparedStatement preparedStatement = conexion.prepareStatement(seleccionarCuenta)) {
+            preparedStatement.setInt(1, cliente.getConsecutivo());
+            preparedStatement.setString(2, tipoCuenta);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                cuenta = new Cuenta();
+                cuenta.setSaldo(resultSet.getDouble("saldo"));
+                cuenta.setNroCuenta(resultSet.getInt("nroCuenta"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al seleccionar una cuenta: " + e.getMessage());
+        }
+        return cuenta;
     }
 
     public ClienteBancoDAO() {

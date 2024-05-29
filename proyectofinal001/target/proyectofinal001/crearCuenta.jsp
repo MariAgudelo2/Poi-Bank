@@ -1,4 +1,6 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %><%@ taglib
+prefix="c" uri="jakarta.tags.core" %>
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -31,6 +33,7 @@
             </div>
         </nav>
         <!-- Features section-->
+        <form action="crearCuenta" method="post">
         <section class="py-5 border-bottom" id="features">
             <div class="container px-5 my-5">
                 <div class="row gx-5">
@@ -44,10 +47,8 @@
                         <h2 class="h4 fw-bolder">Cuenta de ahorros</h2>
                         <p>Una cuenta de ahorros es un producto con el que puedes administrar tu dinero y disponer 
                             de él cuando lo necesites.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Abre una cuenta de ahorros
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
+                        </br>
+                        <button name="tipoCuenta" type="submit" value="ahorros"> Abrir una cuenta de ahorros</button>
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
@@ -61,10 +62,7 @@
                             retiros con frecuencia.
                             Al igual que la cuenta de ahorros, puede tener asociada una tarjeta débito, pero también 
                             una chequera y una tarjeta de crédito.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Abre una cuenta corriente
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
+                            <button name="tipoCuenta" type="submit" value="corriente"> Abrir una cuenta corriente</button>
                     </div>
                     <div class="col-lg-4">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
@@ -77,22 +75,23 @@
                         <p>Una cuenta suprema es una cuenta con la que obtienes un mayor rendimiento por tu dinero al 
                             comprometerte a mantenerlo en el banco por un período determinado, es la combinación 
                             perfecta entre rentabilidad y flexibilidad para que puedas ahorrar y alcanzar tus metas.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Abre una cuenta suprema
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
+                            <button name="tipoCuenta" type="submit" value="suprema"> Abrir una cuenta suprema</button>
                     </div>
                 </div>
             </div>
         </br>
-            <div id="crearCuenta">
+        </section>
+    </form>
+        <section>
+        </section>
+            <div class="centrar">
                 <p>Conoce nuestros 
                     <a class="text-decoration-none"  href="#!">términos y condiciones</a>
                 </p>
             </br> 
                 <a class="text-decoration-none"  href="banco.jsp">¿Ya tienes una cuenta?</a>
             </div>
-        </section>
+        
 
         <!-- Footer-->
         <footer class="py-5 bg-dark">

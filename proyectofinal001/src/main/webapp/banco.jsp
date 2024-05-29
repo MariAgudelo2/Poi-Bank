@@ -94,7 +94,7 @@
                     </div>
                 </div>
             </div>
-            <div id="crearCuenta">
+            <div class="centrar">
                 <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Consultar saldo</a>
             </br></br>
                 <p>¿No tienes una cuenta? Crea una 

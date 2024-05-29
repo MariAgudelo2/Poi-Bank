@@ -8,6 +8,7 @@ import com.udea.model.ClienteInmo;
 
 public class OfertasDAO {
 
+    static ConexionDAO conexionDAO = new ConexionDAO();
     String URL_DB = "jdbc:mariadb://localhost:3306/mysql";
     String USER_DB = "root";
     String PASSWORD_DB = "root";
@@ -20,7 +21,7 @@ public class OfertasDAO {
         ClienteInmo comprador = new ClienteInmo();
         try (
            
-            Connection conexion = clienteInmoDao.getConnection();
+            Connection conexion = conexionDAO.getConnection();
             PreparedStatement preparedStatement = conexion.prepareStatement(SELECCIONAR_COMPRADOR)){
             preparedStatement.setLong(0, oferta);
             ResultSet resultSet = preparedStatement.executeQuery();

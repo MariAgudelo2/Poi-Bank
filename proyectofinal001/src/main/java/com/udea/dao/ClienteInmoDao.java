@@ -12,13 +12,14 @@ import java.util.random.RandomGenerator;
 
 import com.udea.model.ClienteInmo;
 
+
 public class ClienteInmoDao {
     String URL_DB = "jdbc:mariadb://localhost:3306/mysql";
     String USER_DB = "root";
     String PASSWORD_DB = "root";
     Random ran = new Random();
     
-
+    ConexionDAO conexionDAO = new ConexionDAO();
     private static final String INSERTAR_CASA = " INSERT INTO inmo.inmocasas(idCliente, descripcion, tipo, pais, ciudad, metrosCuadrados, precio, fechalim, codigoProp) VALUES(?,?,?,?,?,?,?,?,?)";
     private static final String SELECCIONAR_TODAS ="SELECT * FROM inmo.inmocasas ";
     private static final String SELECCIONAR_TODAS_SUBASTAS ="SELECT * FROM inmo.inmocasas where tipo like '%basta' ";
@@ -28,30 +29,13 @@ public class ClienteInmoDao {
     private static final String MODIFICAR_PRECIO = " UPDATE inmo.inmocasas SET precio= ? WHERE consecutivoInmo = ? AND descripcion = ?" ;
     private static final String ELIMINAR_PROPIEDAD = "DELETE FROM inmo.inmocasas WHERE consecutivoInmo = ? AND descripcion = ?";
 
-                protected Connection getConnection() {
-        Connection conexion = null;
-        try {
-          
-          Class.forName("org.mariadb.jdbc.Driver");
-          System.out.println("Conectando a la base de datos...");
-          
-          
-          conexion = DriverManager.getConnection(URL_DB, USER_DB, PASSWORD_DB);
-          System.out.println(conexion);
-        } catch (ClassNotFoundException e) {
-          System.out.println("Error: MariaDB JDBC Driver no encontrado.");
-        } catch (SQLException e) {
-          System.out.println("Error al conectar a la base de datos: " + e.getMessage());
-          e.printStackTrace();
-        }
-        return conexion;
-    }
-
+                
 
     public void InsertarCasa(ClienteInmo clienteInmo)
     {
         try (
-            Connection conexion = getConnection();
+            
+            Connection conexion = conexionDAO.getConnection();
             PreparedStatement preparedStatement = conexion.prepareStatement(INSERTAR_CASA)){
             preparedStatement.setInt(1, clienteInmo.getIdCliente());
             preparedStatement.setString(2, clienteInmo.getDescrip());
@@ -72,7 +56,7 @@ public class ClienteInmoDao {
     public void ModificarDueño(ClienteInmo clienteInmo, ClienteInmo clienteInmo2)
     {
         try(
-            Connection conexion = getConnection();
+            Connection conexion = conexionDAO.getConnection();
             PreparedStatement preparedStatement = conexion.prepareStatement(MODIFICAR_DUEÑO)){
             preparedStatement.setInt(1, clienteInmo2.getConsecutivo());
             preparedStatement.setInt(2, clienteInmo2.getIdCliente());
@@ -100,7 +84,7 @@ public class ClienteInmoDao {
     public void ModificarPrecio(Long valor, ClienteInmo clienteInmo)
     {
         try(
-            Connection conexion = getConnection();
+            Connection conexion = conexionDAO.getConnection();
             PreparedStatement preparedStatement = conexion.prepareStatement(MODIFICAR_PRECIO)){
               preparedStatement.setLong(1, valor);
               preparedStatement.setInt(2, clienteInmo.getConsecutivo());
@@ -115,7 +99,7 @@ public class ClienteInmoDao {
     public ClienteInmo SeleccionarProp(int consecutivo, String desc)
     {   ClienteInmo clienteInmo = new ClienteInmo();
         try(
-            Connection conexion = getConnection();
+          Connection conexion = conexionDAO.getConnection();
             PreparedStatement preparedStatement = conexion.prepareStatement(SELECCIONAR_PROP)){
             preparedStatement.setInt(1, consecutivo);
             preparedStatement.setString(2, desc);
@@ -145,7 +129,7 @@ public class ClienteInmoDao {
 
         List<ClienteInmo> clientesInmo = new ArrayList<>();
 
-        try (Connection conexion = getConnection();
+        try (Connection conexion = conexionDAO.getConnection();
             PreparedStatement preparedStatement = conexion.prepareStatement(SELECCIONAR_TODAS)) {
           ResultSet resultSet = preparedStatement.executeQuery();
           while (resultSet.next()) {
@@ -172,7 +156,7 @@ public class ClienteInmoDao {
 
         List<ClienteInmo> subastasDispo = new ArrayList<>();
 
-        try (Connection conexion = getConnection();
+        try (Connection conexion = conexionDAO.getConnection();
             PreparedStatement preparedStatement = conexion.prepareStatement(SELECCIONAR_TODAS_SUBASTAS)) {
           ResultSet resultSet = preparedStatement.executeQuery();
           while (resultSet.next()) {
@@ -197,7 +181,7 @@ public class ClienteInmoDao {
       public  void eliminarPropiedad(int consecutivoInmo, String descString)
       {
         try (
-            Connection conexion = getConnection();
+            Connection conexion = conexionDAO.getConnection();
             PreparedStatement preparedStatement = conexion.prepareStatement(ELIMINAR_PROPIEDAD)){
             preparedStatement.setInt(1, consecutivoInmo);
             preparedStatement.setString(2, descString);  

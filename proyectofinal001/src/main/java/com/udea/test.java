@@ -19,13 +19,18 @@ public class test {
     
     public static void main(String[] args) {
         
+        
+        mostrarDaticos();
+
+    }
+    public static void entrarSubasta(){
         mostrarDaticos();
 
         ClienteInmo cliente = clienteInmoDao.SeleccionarProp(1, "Mi casita");
         MatriculaInmo matriculaInmo = new MatriculaInmo();
         matriculaInmo.validOfrecer(cliente);
     }
-
+    
     public static void modificarDaticos(){
         clienteInmo = clienteInmoDao.SeleccionarProp(2, "Mi casita");
         System.out.println("soy " + clienteInmo.getIdCliente());
@@ -40,7 +45,7 @@ public class test {
         //Datos quemados para prueba unicamente
     clienteInmo.setIdCliente(123456789);
     clienteInmo.setDescrip("Mi casita");
-    clienteInmo.setTipo("Propiedad");
+    clienteInmo.setTipo("subasta");
     clienteInmo.setPais("colombia");
     clienteInmo.setCiudad("codazzi");
     clienteInmo.setMtsCua("2949");
@@ -52,7 +57,7 @@ public class test {
     }
    
     public static void mostrarDaticos(){
-        List<ClienteInmo> casasClienteInmoDaos = clienteInmoDao.MostrarSubastas(); 
+        List<ClienteInmo> casasClienteInmoDaos = clienteInmoDao.MostrarCasas(); 
        
        for (ClienteInmo clienteInmo : casasClienteInmoDaos) {
         System.out.println("------------------");
@@ -63,8 +68,9 @@ public class test {
         System.out.println("Metros Cuadrados: " + clienteInmo.getMtsCua());
         System.out.println("Precio: " + clienteInmo.getPrecio());
         System.out.println("Fecha Límite: " + clienteInmo.getTimeStamp());
+        System.out.println("Código de la Propiedad: " + clienteInmo.getCodigoProp());
        }
-       System.out.println("A todas las tengo ardidas");
+       
     }
 
     public static void eliminarDaticos(){

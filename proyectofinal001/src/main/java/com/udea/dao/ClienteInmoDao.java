@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.random.RandomGenerator;
 
 import com.udea.model.ClienteInmo;
 
@@ -14,9 +16,10 @@ public class ClienteInmoDao {
     String URL_DB = "jdbc:mariadb://localhost:3306/mysql";
     String USER_DB = "root";
     String PASSWORD_DB = "root";
+    Random ran = new Random();
     
 
-    private static final String INSERTAR_CASA = " INSERT INTO inmo.inmocasas(idCliente, descripcion, tipo, pais, ciudad, metrosCuadrados, precio, fechalim) VALUES(?,?,?,?,?,?,?,?)";
+    private static final String INSERTAR_CASA = " INSERT INTO inmo.inmocasas(idCliente, descripcion, tipo, pais, ciudad, metrosCuadrados, precio, fechalim, codigoProp) VALUES(?,?,?,?,?,?,?,?,?)";
     private static final String SELECCIONAR_TODAS ="SELECT * FROM inmo.inmocasas ";
     private static final String SELECCIONAR_TODAS_SUBASTAS ="SELECT * FROM inmo.inmocasas where tipo like '%basta' ";
     private static final String SELECCIONAR_PROPDUEÑO ="SELECT * FROM inmo.inmocasas WHERE consecutivoInmo = ? ";
@@ -58,6 +61,7 @@ public class ClienteInmoDao {
             preparedStatement.setString(6, clienteInmo.getMtsCua());
             preparedStatement.setDouble(7, clienteInmo.getPrecio());
             preparedStatement.setTimestamp(8, clienteInmo.getTimeStamp());
+            preparedStatement.setInt(9, ran.nextInt(1000)+1);
             preparedStatement.executeUpdate();
             System.out.println("GOLEAMOSSSSSSSSSSS");
         } catch (Exception e) {
@@ -127,6 +131,7 @@ public class ClienteInmoDao {
                 clienteInmo.setMtsCua(resultSet.getString("metrosCuadrados"));
                 clienteInmo.setPrecio(resultSet.getLong("precio"));  // Cambiar a double si el tipo en la BD es double
                 clienteInmo.setTimeStamp(resultSet.getTimestamp("fechalim"));
+                clienteInmo.setCodigoProp(resultSet.getInt("codigoPro"));
             } else {
                 System.out.println("No se encontraron resultados para los parámetros proporcionados.");
             }
@@ -154,6 +159,7 @@ public class ClienteInmoDao {
             clienteInmo.setMtsCua(resultSet.getString("metrosCuadrados"));
             clienteInmo.setPrecio(resultSet.getLong("precio"));
             clienteInmo.setTimeStamp(resultSet.getTimestamp("fechalim"));
+            clienteInmo.setCodigoProp(resultSet.getInt("codigoPro"));
             clientesInmo.add(clienteInmo);
           }
         } catch (SQLException e) {

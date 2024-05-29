@@ -9,9 +9,6 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-import javax.management.Notification;
-import javax.swing.JOptionPane;
-
 import com.udea.dao.ClienteBancoDAO;
 import com.udea.model.Cliente;
 import com.udea.model.Cuenta;

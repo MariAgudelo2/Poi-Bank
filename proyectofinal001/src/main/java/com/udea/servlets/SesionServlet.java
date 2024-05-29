@@ -1,8 +1,6 @@
 package com.udea.servlets;
 
 import java.io.IOException;
-import java.util.Collections;
-import java.util.List;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;

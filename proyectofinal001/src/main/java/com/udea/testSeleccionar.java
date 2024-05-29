@@ -3,7 +3,7 @@ package com.udea;
 import com.udea.dao.ClienteBancoDAO;
 import com.udea.model.Cliente;
 
-public class testSeleccionar {
+public class TestSeleccionar {
     static String pais = "Argentina";
     static String contrasena = "vivaAnaGabriel";
     static int id = 123;

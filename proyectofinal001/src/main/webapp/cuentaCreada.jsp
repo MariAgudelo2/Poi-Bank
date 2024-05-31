@@ -10,14 +10,35 @@
     function redireccionar() {
       setTimeout(function () {
         window.location.href = "banco.jsp";
-      }, 8000);
+      }, 7000);
     }
     window.onload = redireccionar;
   </script>
   <body>
-    <h2>Cuenta creada exitosamente</h2>
-    Serás redireccionado a la página principal en unos segundos, para conocer
-    los detalles de tu cuenta, dirígete a la pestaña "tu cuenta" en la parte
-    superior
+    <div>
+      <div>
+        <img src="assets/iconBlack.png" />
+      </div>
+      <h2>Cuenta creada exitosamente</h2>
+      <p>
+        Serás redireccionado a la página principal en unos segundos, para
+        conocer los detalles de tu cuenta, dirígete a la pestaña "tu cuenta" en
+        la parte superior
+      </p>
+    </div>
   </body>
+  <style>
+    body {
+      text-align: center;
+      display: flex;
+      font-family: Arial, sans-serif;
+      color: #322d2c;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    body img {
+      height: 120px;
+    }
+  </style>
 </html>

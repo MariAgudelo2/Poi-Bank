@@ -27,8 +27,9 @@ public class CrearCuentaServlet extends HttpServlet {
         Cliente cliente = (Cliente) session.getAttribute("cliente");
         String tipoCuenta = request.getParameter("tipoCuenta");
         int nroCuenta = (int) (Math.random() * 1000000000);
+        Cuenta cuenta = clienteDao.seleccionarCuenta(cliente, tipoCuenta);
 
-        if (clienteDao.seleccionarCuenta(cliente, tipoCuenta) == null) {
+        if (cuenta == null || cuenta.getEstado() != "activa") {
             Cuenta nuevaCuenta = new Cuenta(nroCuenta, cliente, tipoCuenta);
             clienteDao.crearCuenta(nuevaCuenta);
 

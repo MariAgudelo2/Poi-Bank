@@ -102,27 +102,38 @@ prefix="c" uri="jakarta.tags.core" %>
           <tr>
             <th>Tipo de cuenta</th>
             <th>Nro de cuenta</th>
+            <th>Estado</th>
           </tr>
-          <tbody>
-            <c:forEach items="${cuentas}" var="cuenta">
-              <tr>
-                <td>
-                  <c:out value="${cuenta.tipoCuenta}" />
-                </td>
-                <td>
-                  <c:out value="${cuenta.nroCuenta}" />
-                </td>
-              </tr>
-            </c:forEach>
-          </tbody>
+          <div id="tablaBotones">
+            <tbody>
+              <c:forEach items="${cuentas}" var="cuenta">
+                <tr>
+                  <td>
+                    <c:out value="${cuenta.tipoCuenta}" />
+                  </td>
+                  <td>
+                    <c:out value="${cuenta.nroCuenta}" />
+                  </td>
+                  <td>
+                    <c:out value="${cuenta.estado}" />
+                  </td>
+                </tr>
+              </c:forEach>
+            </tbody>
+          </div>
         </table>
       </div>
-      <br /><br />
+      <br />
       <div class="centrar">
-        <p>
-          Conoce nuestros
-          <a class="text-decoration-none" href="#!">términos y condiciones</a>
-        </p>
+        <form action="modificarEstado" method="get">
+          <button type="submit">Cancelar cuenta</button>
+
+          <br /><br />
+          <p>
+            Conoce nuestros
+            <a class="text-decoration-none" href="#!">términos y condiciones</a>
+          </p>
+        </form>
       </div>
       <br />
       <br />
@@ -144,4 +155,21 @@ prefix="c" uri="jakarta.tags.core" %>
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
   </body>
+  <style>
+    .centrar {
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+    button {
+      margin-bottom: 10px;
+      border: 1px solid #aaaa7b;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    button:hover {
+      background-color: #322d2c;
+      color: #fff;
+    }
+  </style>
 </html>

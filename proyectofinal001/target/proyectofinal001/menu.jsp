@@ -11,8 +11,9 @@ prefix="c" uri="jakarta.tags.core" %>
   <body>
     <div>
       <h1>Bienvenido(a)</h1>
-      <c:out value="${clienteNombres}" />
-      <c:out value="${clienteApellidos}" />
+      <h3>
+        <c:out value="${clienteNombres}" /><c:out value="${clienteApellidos}" />
+      </h3>
       <br />
       <h2>¿Qué desea hacer?</h2>
       <a href="">
@@ -25,6 +26,7 @@ prefix="c" uri="jakarta.tags.core" %>
   </body>
   <style>
     body {
+      text-align: center;
       display: flex;
       justify-content: center;
       align-items: center;

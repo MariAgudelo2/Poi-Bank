@@ -8,6 +8,7 @@ public class Cuenta {
     private double saldo = 0;
     private Cliente cliente;
     private String tipoCuenta;
+    private String estado = "activa";
 
     public Cuenta(int nroCuenta, Cliente cliente, String tipoCuenta) {
         this.nroCuenta = nroCuenta;
@@ -17,6 +18,14 @@ public class Cuenta {
 
     public Cuenta() {
 
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public String getTipoCuenta() {

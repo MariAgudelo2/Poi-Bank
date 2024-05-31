@@ -27,7 +27,11 @@ prefix="c" uri="jakarta.tags.core" %>
                         <li class="nav-item"><a class="nav-link" href="banco.jsp">Home</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="crearCuenta.jsp">Abre una cuenta nueva</a></li>
                         <li class="nav-item"><form class="tuCuentaBtn" action="tuCuenta" method="Get"><button type="submit" class="nav-link" href="tuCuenta.jsp">Tu cuenta</button></form></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Sobre nosotros</a></li>
+                        <li class="nav-item"><a
+                            class="nav-link"
+                            href="sobreNosotros.jsp"
+                            >Sobre nosotros</a
+                          ></li>
                     </ul>
                 </div>
             </div>

@@ -25,5 +25,17 @@ public class TestSeleccionar {
             System.out.println(cuenta.getTipoCuenta());
             System.out.println(cuenta.getNroCuenta());
         }
+        conversionMoneda(10, "dolares");
+    }
+
+    public static double conversionMoneda(double valor, String tipo) {
+        double monto = valor;
+        if (tipo == "dolares") {
+            monto = valor * 3856.15;
+        } else if (tipo == "euros") {
+            monto = valor * 4193.93;
+        }
+        System.out.println(monto);
+        return monto;
     }
 }

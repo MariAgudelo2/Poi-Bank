@@ -62,7 +62,7 @@ prefix="c" uri="jakarta.tags.core" %>
               </form>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#!">Sobre nosotros</a>
+              <a class="nav-link" href="sobreNosotros.jsp">Sobre nosotros</a>
             </li>
           </ul>
         </div>
@@ -95,6 +95,21 @@ prefix="c" uri="jakarta.tags.core" %>
             </tbody>
           </div>
         </table>
+      </div>
+
+      <div class="centrar1">
+        <form action="mostrarMovimientos" method="get">
+          <label for="tipoCuenta">Consulta acerca de tus transacciones</label>
+          <br />
+          <select name="tipoCuenta">
+            <c:forEach items="${cuentas}" var="cuenta">
+              <option name="tipoCuenta">
+                <c:out value="${cuenta.tipoCuenta}" />
+              </option>
+            </c:forEach>
+          </select>
+          <button type="submit">Movimientos</button>
+        </form>
       </div>
       <div class="centrar">
         <a href="banco.jsp">
@@ -137,6 +152,13 @@ prefix="c" uri="jakarta.tags.core" %>
       align-items: center;
       font-family: Arial, sans-serif;
       padding-bottom: 0px;
+    }
+    .centrar1 {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
     }
     button {
       margin-bottom: 10px;

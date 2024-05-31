@@ -62,7 +62,7 @@ prefix="c" uri="jakarta.tags.core" %>
               </form>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#!">Sobre nosotros</a>
+              <a class="nav-link" href="sobreNosotros.jsp">Sobre nosotros</a>
             </li>
           </ul>
         </div>

@@ -34,7 +34,11 @@
                             <form class="tuCuentaBtn" action="tuCuenta" method="Get"><button type="submit"
                                     class="nav-link" href="tuCuenta.jsp">Tu cuenta</button></form>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Sobre nosotros</a></li>
+                        <li class="nav-item"><a
+                            class="nav-link"
+                            href="sobreNosotros.jsp"
+                            >Sobre nosotros</a
+                          ></li>
                     </ul>
                 </div>
             </div>
@@ -87,7 +91,7 @@
                                     d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5" />
                             </svg>
                         </div>
-                        <form class="tuCuentaBtn" action="transferir" method="post">
+                        <form class="tuCuentaBtn" action="transferir" method="get">
                             <h2 class="h4 fw-bolder">Transferir</h2>
                             <p>Transfiere dinero de tu cuenta a otra cuenta bancaria de Poi-Bank</p>
                             <button class="text-decoration-none" type="submit">
@@ -105,7 +109,7 @@
                                     d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2z" />
                             </svg>
                         </div>
-                        <form class="tuCuentaBtn" action="retirar" method="post">
+                        <form class="tuCuentaBtn" action="retirar" method="get">
                             <h2 class="h4 fw-bolder">Retirar</h2>
                             <p>Retira dinero de tu cuenta bancaria actual y úsalo como te plazca </p>
                             <button class="text-decoration-none" type="submit">
@@ -120,7 +124,7 @@
             <form action="saldo" method="get">
                 <div class="centrar">
                     <button class="btn btn-primary btn-lg px-4 me-sm-3" type="submit">
-                        Consultar saldo
+                        Consultar saldo y movimientos
                     </button>
                     </br></br>
                     <p>¿No tienes una cuenta? Crea una

@@ -20,12 +20,10 @@ import jakarta.servlet.http.HttpSession;
 public class ConsignarServlet extends HttpServlet {
     private ClienteBancoDAO clienteDao;
     private TransaccionesDAO transDao;
-    private Transacciones trans;
 
     public ConsignarServlet() {
         this.clienteDao = new ClienteBancoDAO();
         this.transDao = new TransaccionesDAO();
-        this.trans = new Transacciones();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -43,13 +41,12 @@ public class ConsignarServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Cliente cliente = (Cliente) session.getAttribute("cliente");
         String tipoCuenta = request.getParameter("tipoCuenta");
-        double valor = Double.parseDouble(request.getParameter("monto"));
+        Cuenta cuenta = clienteDao.seleccionarCuenta(cliente, tipoCuenta);
+        double monto = Double.parseDouble(request.getParameter("monto"));
         String moneda = request.getParameter("moneda");
 
-        double monto = trans.conversionMoneda(valor, moneda);
-
-        Cuenta cuenta = clienteDao.seleccionarCuenta(cliente, tipoCuenta);
-        boolean transaccion = transDao.consignar_retirar("consignar", cuenta, monto);
+        boolean transaccion = transDao.consignar(cuenta, monto, moneda);
+        transDao.actualizarSaldo(cuenta.getSaldo(), cuenta.getNroCuenta());
         if (transaccion == false) {
             request.getRequestDispatcher("/transaccionFallida.jsp").forward(request, response);
         } else {

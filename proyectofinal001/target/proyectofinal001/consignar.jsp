@@ -59,7 +59,7 @@ prefix="c" uri="jakarta.tags.core" %>
               </form>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#!">Sobre nosotros</a>
+              <a class="nav-link" href="sobreNosotros.jsp">Sobre nosotros</a>
             </li>
           </ul>
         </div>
@@ -78,15 +78,17 @@ prefix="c" uri="jakarta.tags.core" %>
           <select name="tipoCuenta">
             <c:forEach items="${cuentas}" var="cuenta">
               <option name="tipoCuenta">
-                <c:out value="${cuenta.tipoCuenta}" />
+                <c:if test="${cuenta.tipoCuenta != 'corriente'}">
+                  <c:out value="${cuenta.tipoCuenta}" />
+                </c:if>
               </option>
             </c:forEach>
           </select>
           <h5>¿En qué moneda?</h5>
           <select name="moneda">
-            <option name="dolares">USD ($)</option>
-            <option name="euros">EUR (€)</option>
-            <option name="pesos">COP ($)</option>
+            <option>USD ($)</option>
+            <option>EUR (€)</option>
+            <option>COP ($)</option>
           </select>
           <label>Valor a consignar: </label>
           <input name="monto" type="number" min="1" />

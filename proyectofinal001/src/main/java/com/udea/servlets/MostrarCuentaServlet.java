@@ -1,9 +1,11 @@
 package com.udea.servlets;
 
 import java.io.IOException;
+import java.util.List;
 
 import com.udea.dao.ClienteBancoDAO;
 import com.udea.model.Cliente;
+import com.udea.model.Cuenta;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -24,7 +26,10 @@ public class MostrarCuentaServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         Cliente cliente = (Cliente) session.getAttribute("cliente");
+        List<Cuenta> cuentas = clienteDao.mostrarCuentas(cliente);
 
         request.setAttribute("cliente1", cliente);
+        request.setAttribute("cuentas", cuentas);
+        request.getRequestDispatcher("/tuCuenta.jsp").forward(request, response);
     }
 }

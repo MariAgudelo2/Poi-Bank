@@ -36,4 +36,44 @@
       <button type="submit">Enviar</button>
     </form>
   </body>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    select,
+    input,
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    select {
+      height: 40px;
+    }
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #3e8e41;
+    }
+    button:hover {
+      background-color: #322d2c;
+      color: #fff;
+    }
+  </style>
 </html>

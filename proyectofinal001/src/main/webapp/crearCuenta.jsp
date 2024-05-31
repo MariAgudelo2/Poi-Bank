@@ -25,8 +25,8 @@ prefix="c" uri="jakarta.tags.core" %>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="banco.jsp">Home</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Abre una cuenta nueva</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Tu cuenta</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="crearCuenta.jsp">Abre una cuenta nueva</a></li>
+                        <li class="nav-item"><form class="tuCuentaBtn" action="tuCuenta" method="Get"><button type="submit" class="nav-link" href="tuCuenta.jsp">Tu cuenta</button></form></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Sobre nosotros</a></li>
                     </ul>
                 </div>

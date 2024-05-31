@@ -8,6 +8,15 @@ public class Ofertas {
         private long valor ;
         private Timestamp fecha;
         
+        
+        public Ofertas() {
+        }
+        
+        public Ofertas(int consecutivoComprador, long valor, Timestamp fecha) {
+            this.consecutivoComprador = consecutivoComprador;
+            this.valor = valor;
+            this.fecha = fecha;
+        }
         public int getConsecutivoComprador() {
             return consecutivoComprador;
         }

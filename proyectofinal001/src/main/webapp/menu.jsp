@@ -14,7 +14,7 @@ prefix="c" uri="jakarta.tags.core" %>
     <c:out value="${clienteApellidos}" />
     <br />
     ¿Qué desea hacer?
-    <a href="">
+    <a href="subasta.jsp">
       <button>Ir a inmobiliaria</button>
     </a>
     <a href="banco.jsp">

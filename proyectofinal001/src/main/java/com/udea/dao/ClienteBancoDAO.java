@@ -10,12 +10,12 @@ import com.udea.model.Cliente;
 import com.udea.model.Cuenta;
 
 public class ClienteBancoDAO {
-    conexionDAO conexionDao = new conexionDAO();
-
-    private static final String insertarCliente = "INSERT INTO banco.clientes (id, nombres, apellidos, email, pais, contrasena) VALUES (?, ?, ?, ?, ?, ?)";
-    private static final String seleccionarCliente = "SELECT * FROM banco.clientes WHERE pais = ? AND id = ? AND contrasena = ?";
-    private static final String crearCuenta = "INSERT INTO banco.cuentas (nroCuenta, cliente, saldo, tipoCuenta) VALUES (?, ?, ?, ?)";
-    private static final String seleccionarCuenta = "SELECT * FROM banco.cuentas WHERE cliente = ? AND tipoCuenta = ?";
+    ConexionDAO conexionDao = new ConexionDAO();
+    //banco.cuentas
+    private static final String insertarCliente = "INSERT INTO inmo.clientesb (id, nombres, apellidos, email, pais, contrasena) VALUES (?, ?, ?, ?, ?, ?)";
+    private static final String seleccionarCliente = "SELECT * FROM inmo.clientesb WHERE pais = ? AND id = ? AND contrasena = ?";
+    private static final String crearCuenta = "INSERT INTO inmo.clientesb (nroCuenta, cliente, saldo, tipoCuenta) VALUES (?, ?, ?, ?)";
+    private static final String seleccionarCuenta = "SELECT * FROM inmo.clientesb WHERE cliente = ? AND tipoCuenta = ?";
     private static final String ELIMINAR_cliente = "DELETE FROM clientes WHERE identificacion = ?";
     private static final String ACTUALIZAR_cliente = "UPDATE clientes SET nombre1 = ?, nombre2 = ?, apellido1 = ?, apellido2 = ?, email = ?, contrasena = ? WHERE identificacion = ?";
 
@@ -50,6 +50,9 @@ public class ClienteBancoDAO {
                 cliente.setApellidos(resultSet.getString("apellidos"));
                 cliente.setEmail(resultSet.getString("email"));
                 cliente.setConsecutivo(resultSet.getInt("consecutivo"));
+                cliente.setId(resultSet.getInt("id"));
+                cliente.setPais(resultSet.getString("pais"));
+                cliente.setContrasena(resultSet.getString("contrasena"));
             }
         } catch (SQLException e) {
             System.out.println("Error al seleccionar un cliente: " + e.getMessage());

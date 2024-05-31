@@ -10,8 +10,9 @@ com\udea\servlets\CrearCuentaServlet.class
 com\udea\servlets\RegistroServlet.class
 com\udea\dao\ClienteInmoDao.class
 com\udea\model\Cuenta.class
+com\udea\dao\ConexionDAO.class
 com\udea\model\ClienteInmo.class
 com\udea\test.class
 com\udea\model\Ofertas.class
-com\udea\dao\conexionDAO.class
+com\udea\servlets\PublicarSubastaServlet.class
 com\udea\testCrearCuenta.class

@@ -18,6 +18,7 @@ public class ClienteBancoDAO {
     private static final String seleccionarCliente = "SELECT * FROM banco.clientes WHERE pais = ? AND id = ? AND contrasena = ?";
     private static final String crearCuenta = "INSERT INTO banco.cuentas (nroCuenta, cliente, saldo, tipoCuenta, estado) VALUES (?, ?, ?, ?, ?)";
     private static final String seleccionarCuenta = "SELECT * FROM banco.cuentas WHERE cliente = ? AND tipoCuenta = ?";
+    private static final String seleccionarCuentaPorNro = "SELECT * FROM banco.cuentas WHERE nroCuenta = ?";
     private static final String obtenerCuentas = "SELECT * FROM banco.cuentas WHERE cliente = ?";
     private static final String cancelarCuenta = "UPDATE banco.cuentas SET estado = ? WHERE cliente = ? and tipoCuenta = ?";
 

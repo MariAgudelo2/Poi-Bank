@@ -1,0 +1,18 @@
+#alerta{
+    display: block;
+}
+#pregunta1{
+    display: none;
+}
+#pregunta2{
+    display: none;
+}
+#pregunta3{
+    display: none;
+}
+#exitoso{
+    display: none;
+}
+#fallido{
+    display: none;
+}

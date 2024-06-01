@@ -19,6 +19,7 @@ com\udea\servlets\CrearCuentaServlet.class
 com\udea\servlets\RetirarServlet.class
 com\udea\model\Cuenta.class
 com\udea\model\ClienteInmo.class
+com\udea\servlets\ConfirmarRetiroServlet.class
 com\udea\test.class
 com\udea\model\Ofertas.class
 com\udea\servlets\ModificarEstadoServlet.class

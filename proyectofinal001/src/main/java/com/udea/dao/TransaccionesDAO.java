@@ -70,30 +70,6 @@ public class TransaccionesDAO {
         return true;
     }
 
-    public void transferir(String tipoTransaccion, Cuenta cuentaSalida, Cuenta cuentaEntrada, double monto) {
-        try (
-                Connection conexion = conexionDao.getConnection();
-                PreparedStatement preparedStatement = conexion.prepareStatement(hacerTransaccion)) {
-
-            LocalDate fecha = LocalDate.now();
-            LocalTime hora = LocalTime.now();
-
-            trans.transferir(cuentaSalida, cuentaEntrada, monto);
-
-            if (!trans.transferir(cuentaSalida, cuentaEntrada, monto)) {
-                System.out.println("saldo insuficiente o monto inválido");
-            }
-            preparedStatement.setInt(1, cuentaSalida.getNroCuenta());
-            preparedStatement.setString(2, tipoTransaccion);
-            preparedStatement.setDouble(3, monto);
-            preparedStatement.setString(4, fecha.toString());
-            preparedStatement.setString(5, hora.toString());
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println("Error al insertar la transacción: " + e.getMessage());
-        }
-    }
-
     public List<Transacciones> mostrarMovimientos(Cuenta cuenta) {
         List<Transacciones> transacciones = new ArrayList<>();
         try (Connection conexion = conexionDao.getConnection();

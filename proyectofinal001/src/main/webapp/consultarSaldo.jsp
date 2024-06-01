@@ -118,12 +118,6 @@ prefix="c" uri="jakarta.tags.core" %>
       </div>
       <br />
       <br />
-      <div class="centrar">
-        <p>
-          Conoce nuestros
-          <a class="text-decoration-none" href="#!">términos y condiciones</a>
-        </p>
-      </div>
     </section>
 
     <!-- Footer-->

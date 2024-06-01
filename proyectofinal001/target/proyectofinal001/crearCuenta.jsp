@@ -89,10 +89,6 @@ prefix="c" uri="jakarta.tags.core" %>
         <section>
         </section>
             <div class="centrar">
-                <p>Conoce nuestros 
-                    <a class="text-decoration-none"  href="#!">términos y condiciones</a>
-                </p>
-            </br> 
                 <a class="text-decoration-none"  href="banco.jsp">¿Ya tienes una cuenta?</a>
             </div>
         

@@ -78,9 +78,7 @@ prefix="c" uri="jakarta.tags.core" %>
           <select name="tipoCuenta">
             <c:forEach items="${cuentas}" var="cuenta">
               <option name="tipoCuenta">
-                <c:if test="${cuenta.tipoCuenta != 'corriente'}">
-                  <c:out value="${cuenta.tipoCuenta}" />
-                </c:if>
+                <c:out value="${cuenta.tipoCuenta}" />
               </option>
             </c:forEach>
           </select>

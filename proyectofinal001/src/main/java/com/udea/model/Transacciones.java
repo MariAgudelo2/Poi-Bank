@@ -98,19 +98,6 @@ public class Transacciones {
         }
     }
 
-    public boolean transferir(Cuenta cuentaSalida, Cuenta cuentaEntrada, double monto) {
-        double saldo1 = cuentaSalida.getSaldo();
-        double saldo2 = cuentaEntrada.getSaldo();
-        if (saldo1 >= monto && monto > 0 && cuentaSalida.getEstado() == "activa"
-                && cuentaEntrada.getEstado() == "activa") {
-            cuentaSalida.setSaldo(saldo1 - monto);
-            cuentaEntrada.setSaldo(saldo2 + monto);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public double conversionMoneda(double valor, String moneda) {
         double monto = 0;
         if (moneda.equals("USD ($)")) {

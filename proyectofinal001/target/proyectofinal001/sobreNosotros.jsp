@@ -95,11 +95,12 @@ prefix="c" uri="jakarta.tags.core" %>
         del acceso a servicios financieros y estamos comprometidos con el
         desarrollo sostenible de nuestras comunidades.
       </p>
-
-      <p id="tyc">
-        Conoce nuestros
-        <a class="text-decoration-none" href="#!">términos y condiciones</a>
-      </p>
+      <p id="tyc">Conoce nuestros términos y condiciones</p>
+      <iframe
+        src="assets/terminos_y_condiciones_poi-bank.pdf"
+        style="width: 100%; height: 700px"
+        >Conoce nuestros</iframe
+      >
 
       <br />
       <br />

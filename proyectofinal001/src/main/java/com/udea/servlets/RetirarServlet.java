@@ -43,12 +43,16 @@ public class RetirarServlet extends HttpServlet {
         Cuenta cuenta = clienteDao.seleccionarCuenta(cliente, tipoCuenta);
         double monto = Double.parseDouble(request.getParameter("monto"));
 
-        boolean transaccion = transDao.retirar(cuenta, monto);
-        transDao.actualizarSaldo(cuenta.getSaldo(), cuenta.getNroCuenta());
-        if (transaccion == false) {
-            request.getRequestDispatcher("/transaccionFallida.jsp").forward(request, response);
+        if (monto > 20000000) {
+            request.getRequestDispatcher("/confirmacionRetiro.jsp").forward(request, response);
         } else {
-            request.getRequestDispatcher("/transaccionExitosa.jsp").forward(request, response);
+            boolean transaccion = transDao.retirar(cuenta, monto);
+            transDao.actualizarSaldo(cuenta.getSaldo(), cuenta.getNroCuenta());
+            if (transaccion == false) {
+                request.getRequestDispatcher("/transaccionFallida.jsp").forward(request, response);
+            } else {
+                request.getRequestDispatcher("/transaccionExitosa.jsp").forward(request, response);
+            }
         }
 
     }

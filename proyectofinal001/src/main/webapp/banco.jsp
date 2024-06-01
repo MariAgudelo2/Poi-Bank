@@ -53,7 +53,7 @@
                             <p class="lead text-white-50 mb-4">Somos más que un banco</p>
                             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
                                 <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Empezar</a>
-                                <a class="btn btn-outline-light btn-lg px-4" href="#!">Sobre nosotros</a>
+                                <a class="btn btn-outline-light btn-lg px-4" href="sobreNosotros.jsp">Sobre nosotros</a>
                             </div>
                         </div>
                     </div>
@@ -83,23 +83,6 @@
                             </button>
                         </form>
                     </div>
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-                                class="bi bi-arrow-left-right" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                    d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5" />
-                            </svg>
-                        </div>
-                        <form class="tuCuentaBtn" action="transferir" method="get">
-                            <h2 class="h4 fw-bolder">Transferir</h2>
-                            <p>Transfiere dinero de tu cuenta a otra cuenta bancaria de Poi-Bank</p>
-                            <button class="text-decoration-none" type="submit">
-                                Transferir a una cuenta
-                                <i class="bi bi-arrow-right"></i>
-                            </button>
-                        </form>
-                    </div>
                     <div class="col-lg-4">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
@@ -123,9 +106,6 @@
             </form>
             <form action="saldo" method="get">
                 <div class="centrar">
-                    <button class="btn btn-primary btn-lg px-4 me-sm-3" type="submit">
-                        Consultar saldo y movimientos
-                    </button>
                     </br></br>
                     <p>¿No tienes una cuenta? Crea una
                         <a class="text-decoration-none" href="crearCuenta.jsp">aquí</a>
